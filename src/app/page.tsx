@@ -15,11 +15,11 @@ export default function Home() {
         radius={1200}
         fontSize={79.24}
         letterSpacing={4.4}
-        strokeWidth={6}
+        strokeWidth={10}
         className="w-full max-w-5xl h-[160px]"
       />
       <h2
-        className="font-luckiest-guy font-normal not-italic text-[332.29px] text-center inline-block align-bottom text-stroke-custom bg-clip-text text-transparent"
+        className="font-luckiest-guy font-normal not-italic text-[250px] text-center inline-block align-bottom text-stroke-custom bg-clip-text text-transparent"
         style={
           {
             "--font-overlay-bg":
@@ -29,6 +29,7 @@ export default function Home() {
               "drop-shadow(0 23.34px 0 #000223) drop-shadow(0 0 0 #000223)",
             "--text-stroke-width": "10.75px",
             "--text-stroke-color": "#000223",
+            "line-height": "normal",
           } as unknown as CSSProperties
         }
       >

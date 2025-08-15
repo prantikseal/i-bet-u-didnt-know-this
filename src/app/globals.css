@@ -35,7 +35,7 @@ body {
   background-clip: text;
   background-image: url("/font-overlay.png"), var(--font-overlay-bg, none);
   background-size: cover, cover;
-  background-position: center 40px, center;;
+  background-position: center, center;;
   background-repeat: no-repeat, no-repeat;
   background-blend-mode: multiply;
 }
