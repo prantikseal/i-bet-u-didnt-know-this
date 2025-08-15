@@ -21,7 +21,20 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: url("/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--foreground);
   font-family: var(--font-luckiest-guy);
+}
+
+/* Luckiest Guy typography utility (non-SVG). Colors intentionally not overridden */
+.font-luckiest-guy-shadow {
+  /* -webkit-text-stroke: 4px #000223; */
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 9.41px 0px #000223;
+  /* filter: drop-shadow(0px 9.41px 13.75px #000223); */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 9.41px 0px 13.75px #000223;
 }
