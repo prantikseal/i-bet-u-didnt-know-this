@@ -26,3 +26,22 @@ body {
   background-repeat: no-repeat;
   font-family: var(--font-luckiest-guy);
 }
+
+.font-overlay-custom {
+  position: relative;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: url("/font-overlay.png"), var(--font-overlay-bg, none);
+  background-size: cover, cover;
+  background-position: center 40px, center;;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: multiply;
+}
+
+/* Glyph-outline stroke for text (avoids rectangular element borders) */
+.text-stroke-custom {
+  -webkit-text-stroke: var(--text-stroke-width, 0)
+    var(--text-stroke-color, currentColor);
+}
