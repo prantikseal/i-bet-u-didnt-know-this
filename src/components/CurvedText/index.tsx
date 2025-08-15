@@ -64,6 +64,7 @@ const CurvedText: React.FC<CurvedTextProps> = ({
 
   const measureRef = useRef<SVGTextElement | null>(null);
   const [chars, setChars] = useState<CharPos[]>([]);
+  const [offsetY, setOffsetY] = useState<number>(0);
 
   useLayoutEffect(() => {
     const el = measureRef.current as SVGTextElement | null;
@@ -85,13 +86,35 @@ const CurvedText: React.FC<CurvedTextProps> = ({
           next.push({ x: p.x, y: p.y, angle, char: ch });
         }
         setChars(next);
+
+        // Compute vertical offset to avoid clipping when curvature tightens
+        try {
+          const bbox = el.getBBox();
+          const padding = Math.max(strokeWidth, 4) + (dropShadow ? 14 : 6);
+          // Shift down if top overflows beyond y=0
+          const topOverflow = padding - bbox.y;
+          const newOffsetY = topOverflow > 0 ? topOverflow : 0;
+          setOffsetY(newOffsetY);
+        } catch {}
       } catch {
         // In case measuring fails, fall back to no overlay.
         setChars([]);
       }
     });
     return () => cancelAnimationFrame(raf);
-  }, [text, width, height, startX, endX, y, radius, fontSize, letterSpacing]);
+  }, [
+    text,
+    width,
+    height,
+    startX,
+    endX,
+    y,
+    radius,
+    fontSize,
+    letterSpacing,
+    dropShadow,
+    strokeWidth,
+  ]);
 
   return (
     <svg
@@ -152,7 +175,10 @@ const CurvedText: React.FC<CurvedTextProps> = ({
       </text>
 
       {/* Per-character rendering with individual vertical gradient */}
-      <g filter={dropShadow ? `url(#${filterId})` : undefined}>
+      <g
+        filter={dropShadow ? `url(#${filterId})` : undefined}
+        transform={`translate(0, ${offsetY})`}
+      >
         {chars.map((c, i) => (
           <text
             key={`${i}-${c.char}`}

@@ -11,10 +11,9 @@ export default function Home() {
         startX={80}
         endX={1120}
         y={180}
-        radius={1400}
+        radius={1200}
         fontSize={79.24}
-        letterSpacing={3}
-        stroke="#000223"
+        letterSpacing={4.4}
         strokeWidth={6}
         className="w-full max-w-5xl h-[160px]"
       />
