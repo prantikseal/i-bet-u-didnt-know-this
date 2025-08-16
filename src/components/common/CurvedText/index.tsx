@@ -122,6 +122,7 @@ const CurvedText: React.FC<CurvedTextProps> = ({
       className={className}
       style={style}
       aria-hidden="true"
+      overflow="visible"
     >
       <defs>
         <path id={pathId} d={arcPath} />
