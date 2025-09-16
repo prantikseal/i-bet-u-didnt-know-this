@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react'
 import CurvedText from '../common/CurvedText';
+import Button from '../common/Button';
 
 const HeroSection = () => {
   return (
@@ -40,6 +41,14 @@ const HeroSection = () => {
         Accumsan in accumsan tempor pulvinar facilisis proin massa ultrices
         vestibulum dipiscing mattis
       </p>
+      <Button>
+        <span className="font-anak-paud">
+          <span className="font-luckiest-guy">W</span>
+          <span className="font-luckiest-guy">O</span>
+          <span className="font-luckiest-guy">R</span>
+          <span className="font-luckiest-guy">D</span>
+        </span>
+      </Button>
     </>
   );
 }
